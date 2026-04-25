@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Boutique E-Commerce</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registration.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>🛍️ Artisant.tn</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="registration.html" class="active">Inscription</a></li>
+                    <li><a href="products.html">Produits & Commandes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Registration Form Section -->
+    <section class="registration-section">
+        <div class="container">
+            <h2>Créez votre compte</h2>
+            <p class="form-description">Rejoignez Artisant.tn dès aujourd'hui et commencez vos achats !</p>
+            
+            <form id="registrationForm" novalidate>
+                <!-- Personal Information -->
+                <fieldset class="form-group">
+                    <legend>Informations personnelles</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="lastName">Nom <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="error-message" id="lastNameError"></span>
+                            <span class="validation-icon" id="lastNameIcon"></span>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="firstName">Prénom <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="error-message" id="firstNameError"></span>
+                            <span class="validation-icon" id="firstNameIcon"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                            <span class="validation-icon" id="emailIcon"></span>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="phone">Numéro de téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+216 XX XXX XXX">
+                            <span class="error-message" id="phoneError"></span>
+                            <span class="validation-icon" id="phoneIcon"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="birthDate">Date de naissance</label>
+                        <input type="date" id="birthDate" name="birthDate">
+                        <span class="error-message" id="birthDateError"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Account Information -->
+                <fieldset class="form-group">
+                    <legend>Informations de compte</legend>
+                    
+                    <div class="form-field">
+                        <label for="username">Nom d'utilisateur <span class="required">*</span></label>
+                        <input type="text" id="username" name="username" required>
+                        <span class="error-message" id="usernameError"></span>
+                        <span class="validation-icon" id="usernameIcon"></span>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="password">Mot de passe <span class="required">*</span></label>
+                            <input type="password" id="password" name="password" required>
+                            <div class="password-requirements">
+                                <p>Le mot de passe doit contenir :</p>
+                                <ul>
+                                    <li id="req-length">Minimum 8 caractères</li>
+                                    <li id="req-upper">Au moins une lettre majuscule</li>
+                                    <li id="req-number">Au moins un chiffre</li>
+                                    <li id="req-special">Au moins un caractère spécial</li>
+                                </ul>
+                            </div>
+                            <span class="error-message" id="passwordError"></span>
+                            <span class="validation-icon" id="passwordIcon"></span>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="confirmPassword">Confirmer le mot de passe <span class="required">*</span></label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <span class="error-message" id="confirmPasswordError"></span>
+                            <span class="validation-icon" id="confirmPasswordIcon"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Preferences -->
+                <fieldset class="form-group">
+                    <legend>Préférences</legend>
+                    
+                    <div class="form-field">
+                        <label>Préférences :</label>
+                        <div class="preference-buttons">
+                            <button type="button" class="btn btn-preference" onclick="openPopup('newsletterPopup')">
+                                📧 Newsletters & Offres
+                                <span id="newsletterStatus" class="preference-status"></span>
+                            </button>
+                            <button type="button" class="btn btn-preference" onclick="openPopup('genderPopup')">
+                                👤 Genre
+                                <span id="genderStatus" class="preference-status"></span>
+                            </button>
+                            <button type="button" class="btn btn-preference" onclick="openPopup('interestsPopup')">
+                                🎯 Catégories d'intérêt
+                                <span id="interestsStatus" class="preference-status"></span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden inputs to store values -->
+                    <input type="hidden" id="newsletter" name="newsletter" value="">
+                    <input type="hidden" id="promotions" name="promotions" value="">
+                    <input type="hidden" id="gender" name="gender" value="">
+                    <input type="hidden" id="interests" name="interests" value="">
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="country">Pays</label>
+                            <select id="country" name="country">
+                                <option value="">Sélectionner un pays</option>
+                                <option value="usa">États-Unis</option>
+                                <option value="canada">Canada</option>
+                                <option value="uk">Royaume-Uni</option>
+                                <option value="france">France</option>
+                                <option value="germany">Allemagne</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-field">
+                            <label for="city">Ville</label>
+                            <select id="city" name="city">
+                                <option value="">Sélectionner une ville</option>
+                                <!-- Cities will be populated based on country selection -->
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Terms and Conditions -->
+                <div class="form-field checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span>J'accepte les <a href="#" target="_blank">Conditions générales</a> <span class="required">*</span></span>
+                    </label>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+
+                <!-- Form Buttons -->
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-submit">Soumettre</button>
+                    <button type="reset" class="btn btn-reset">Réinitialiser</button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;">
+                <h3>✓ Inscription réussie !</h3>
+                <p>Merci de vous être inscrit sur Artisant.tn. Votre compte a été créé avec succès.</p>
+                <button type="button" class="btn btn-primary" onclick="document.getElementById('successMessage').style.display='none'">Fermer</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modals -->
+    <!-- Newsletter & Offers Popup -->
+    <div id="newsletterPopup" class="popup-modal">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>📧 Newsletters & Offres</h3>
+                <button type="button" class="popup-close" onclick="closePopup('newsletterPopup')">&times;</button>
+            </div>
+            <div class="popup-body">
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="popupNewsletter" onchange="updateNewsletterStatus()">
+                        <span>S'abonner à la newsletter</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="popupPromotions" onchange="updateNewsletterStatus()">
+                        <span>Recevoir les offres promotionnelles</span>
+                    </label>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button type="button" class="btn btn-primary" onclick="saveNewsletterPreferences()">Enregistrer</button>
+                <button type="button" class="btn btn-reset" onclick="closePopup('newsletterPopup')">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gender Popup -->
+    <div id="genderPopup" class="popup-modal">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>👤 Genre</h3>
+                <button type="button" class="popup-close" onclick="closePopup('genderPopup')">&times;</button>
+            </div>
+            <div class="popup-body">
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="popupGender" value="male" onchange="updateGenderStatus()">
+                        <span>Homme</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="popupGender" value="female" onchange="updateGenderStatus()">
+                        <span>Femme</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="popupGender" value="other" onchange="updateGenderStatus()">
+                        <span>Autre</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="popupGender" value="prefer-not-to-say" onchange="updateGenderStatus()">
+                        <span>Je préfère ne pas le dire</span>
+                    </label>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button type="button" class="btn btn-primary" onclick="saveGenderPreference()">Enregistrer</button>
+                <button type="button" class="btn btn-reset" onclick="closePopup('genderPopup')">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interest Categories Popup -->
+    <div id="interestsPopup" class="popup-modal">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>🎯 Catégories d'intérêt</h3>
+                <button type="button" class="popup-close" onclick="closePopup('interestsPopup')">&times;</button>
+            </div>
+            <div class="popup-body">
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="popupInterests" value="electronics" onchange="updateInterestsStatus()">
+                        <span>Bois d'Olivier Tunisien</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="popupInterests" value="fashion" onchange="updateInterestsStatus()">
+                        <span>couffin</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="popupInterests" value="home" onchange="updateInterestsStatus()">
+                        <span>Maison & Décoration</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="popupInterests" value="gaming" onchange="updateInterestsStatus()">
+                        <span>faux bijouts</span>
+                    </label>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button type="button" class="btn btn-primary" onclick="saveInterestsPreference()">Enregistrer</button>
+                <button type="button" class="btn btn-reset" onclick="closePopup('interestsPopup')">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contactez-nous</h3>
+                    <p>📧 Email : <a href="mailto:contact@shophub.com">contact@shophub.com</a></p>
+                    <p>📱 WhatsApp : <a href="https://wa.me/21698123456">+216 98 123 456</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="registration.html">S'inscrire</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShopHub. Tous droits réservés.</p>
+                <p>Mentions légales : Ce site web est uniquement à des fins éducatives.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/registration.js"></script>
+</body>
+</html>
+

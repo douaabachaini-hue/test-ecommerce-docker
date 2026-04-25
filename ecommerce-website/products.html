@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits & Commandes - Boutique E-Commerce</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>🛍️ ShopHub</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="registration.html">Inscription</a></li>
+                    <li><a href="products.html" class="active">Produits & Commandes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2>Nos produits</h2>
+            <p class="section-description">Parcourez notre catalogue et ajoutez des articles à votre panier</p>
+            
+            <!-- Product Catalog -->
+            <div class="product-catalog" id="productCatalog">
+                <!-- Product 1 -->
+                <div class="product-card" data-product-id="1">
+                    <div class="product-image">
+                        <img src="images/smartphone-samsung-galaxy-a04e-3go-32go-noir-tunisie.jpg" alt="Smartphone" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3ESmartphone%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Smartphone Premium</h3>
+                        <p class="product-description">Dernier modèle avec fonctionnalités avancées, caméra haute résolution et longue autonomie.</p>
+                        <p class="product-price">599,99 DT</p>
+                        <div class="product-controls">
+                            <label for="qty-1">Quantité :</label>
+                            <input type="number" id="qty-1" class="quantity-input" min="1" max="99" value="1" data-product-id="1">
+                            <button class="btn btn-add-cart" data-product-id="1" data-price="599.99" data-name="Smartphone Premium">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product-id="2">
+                    <div class="product-image">
+                        <img src="images/téléchargement.jpg" alt="Laptop" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3ELaptop%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ordinateur Portable Gaming</h3>
+                        <p class="product-description">Ordinateur portable haute performance avec carte graphique dédiée, parfait pour le gaming et le travail.</p>
+                        <p class="product-price">1299,99 DT</p>
+                        <div class="product-controls">
+                            <label for="qty-2">Quantité :</label>
+                            <input type="number" id="qty-2" class="quantity-input" min="1" max="99" value="1" data-product-id="2">
+                            <button class="btn btn-add-cart" data-product-id="2" data-price="1299.99" data-name="Ordinateur Portable Gaming">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-product-id="3">
+                    <div class="product-image">
+                        <img src="images/image.jpg" alt="Headphones" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EHeadphones%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Casque Sans Fil</h3>
+                        <p class="product-description">Casque premium avec réduction de bruit, qualité sonore supérieure et confort optimal.</p>
+                        <p class="product-price">199,99 DT</p>
+                        <div class="product-controls">
+                            <label for="qty-3">Quantité :</label>
+                            <input type="number" id="qty-3" class="quantity-input" min="1" max="99" value="1" data-product-id="3">
+                            <button class="btn btn-add-cart" data-product-id="3" data-price="199.99" data-name="Casque Sans Fil">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-product-id="4">
+                    <div class="product-image">
+                        <img src="images/images (1).jpg" alt="Smart Watch" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23ddd%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3ESmart Watch%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Montre Intelligente</h3>
+                        <p class="product-description">Montre intelligente complète avec suivi fitness, notifications et longue autonomie.</p>
+                        <p class="product-price">349,99 DT</p>
+                        <div class="product-controls">
+                            <label for="qty-4">Quantité :</label>
+                            <input type="number" id="qty-4" class="quantity-input" min="1" max="99" value="1" data-product-id="4">
+                            <button class="btn btn-add-cart" data-product-id="4" data-price="349.99" data-name="Montre Intelligente">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Summary Section -->
+    <section class="order-summary-section">
+        <div class="container">
+            <h2>Résumé de la commande</h2>
+            <div id="orderSummary" class="order-summary">
+                <p class="empty-cart-message">Votre panier est vide. Ajoutez des produits pour les voir ici.</p>
+                <div id="cartItems" class="cart-items" style="display: none;">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Quantité</th>
+                                <th>Prix unitaire</th>
+                                <th>Sous-total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                            <!-- Cart items will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                    <div class="cart-total">
+                        <p class="total-label">Total : <span id="orderTotal">0,00 DT</span></p>
+                    </div>
+                    <div class="cart-actions">
+                        <button id="confirmOrderBtn" class="btn btn-confirm" style="display: none;">Confirmer la commande</button>
+                        <button id="resetCartBtn" class="btn btn-reset" style="display: none;">Vider le panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Message -->
+    <div id="orderConfirmation" class="confirmation-message" style="display: none;">
+        <div class="confirmation-content">
+            <h3>✓ Commande confirmée !</h3>
+            <p>Merci pour votre commande. Votre commande a été passée avec succès.</p>
+            <p id="confirmationDetails"></p>
+            <button type="button" class="btn btn-primary" onclick="closeConfirmation()">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contactez-nous</h3>
+                    <p>📧 Email : <a href="mailto:contact@shophub.com">contact@shophub.com</a></p>
+                    <p>📱 WhatsApp : <a href="https://wa.me/21698123456">+216 98 123 456</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="registration.html">S'inscrire</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShopHub. Tous droits réservés.</p>
+                <p>Mentions légales : Ce site web est uniquement à des fins éducatives.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+</body>
+</html>
+

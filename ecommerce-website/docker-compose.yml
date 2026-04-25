@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # Main web service - E-commerce website
+  web:
+    build: .
+    container_name: ecommerce-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - ecommerce-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Bonus: Log viewer service using httpd
+  log-viewer:
+    image: httpd:alpine
+    container_name: ecommerce-logs
+    ports:
+      - "8081:80"
+    volumes:
+      - ./logs:/usr/local/apache2/logs
+    restart: unless-stopped
+    networks:
+      - ecommerce-network
+    profiles:
+      - bonus
+
+networks:
+  ecommerce-network:
+    driver: bridge
