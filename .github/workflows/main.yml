@@ -1,0 +1,23 @@
+name: Docker Build and Test CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ecommerce-website:latest
+
+    - name: Run Docker container test
+      run: docker run -d -p 8080:80 ecommerce-website:latest
+
+ 
